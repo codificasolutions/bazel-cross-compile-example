@@ -1,0 +1,3 @@
+# build:xcompile_aarch64 --crosstool_top=//:toolchain-gcc-xcompile
+build:xcompile_aarch64 --platforms=//:linux_gcc_aarch64
+build:xcompile_aarch64 --incompatible_enable_cc_toolchain_resolution
