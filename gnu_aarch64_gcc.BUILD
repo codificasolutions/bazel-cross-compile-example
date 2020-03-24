@@ -8,71 +8,52 @@ filegroup(
 
 filegroup(
     name = "gcc",
-    srcs = [
-        "bin/aarch64-none-linux-gnu-gcc",
-    ],
+    srcs = glob(["bin/*-gcc"]),
 )
 
 filegroup(
     name = "ar",
-    srcs = [
-        "bin/aarch64-none-linux-gnu-ar",
-    ],
+    srcs = glob(["bin/*-ar"])
 )
 
 filegroup(
     name = "cpp",
-    srcs = [
-        "bin/aarch64-none-linux-gnu-cpp",
-    ],
+    srcs = glob(["bin/*-cpp"])
 )
 
 filegroup(
     name = "gcov",
-    srcs = [
-        "bin/aarch64-none-linux-gnu-gcov",
-    ],
+    srcs = glob(["bin/*-gcov"])
 )
 
 filegroup(
     name = "ld",
-    srcs = [
-        "bin/aarch64-none-linux-gnu-ld",
-    ],
+    srcs = glob(["bin/*-ld"])
 )
 
 filegroup(
     name = "nm",
-    srcs = [
-        "bin/aarch64-none-linux-gnu-nm",
-    ],
+    srcs = glob(["bin/*-nm"])
 )
 
 filegroup(
     name = "objcopy",
-    srcs = [
-        "bin/aarch64-none-linux-gnu-objcopy",
-    ],
+    srcs = glob(["bin/*-objcopy"])
 )
 
 filegroup(
     name = "objdump",
-    srcs = [
-        "bin/aarch64-none-linux-gnu-objdump",
-    ],
+    srcs = glob(["bin/*-objdump"])
 )
 
 filegroup(
     name = "strip",
-    srcs = [
-        "bin/aarch64-none-linux-gnu-strip",
-    ],
+    srcs = glob(["bin/*-strip"])
 )
 
 filegroup(
     name = "as",
-    srcs = ["bin/aarch64-none-linux-gnu-as",
-    ],
+    srcs = glob(["bin/*-as"])
 )
 
 filegroup(

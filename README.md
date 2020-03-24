@@ -1,10 +1,13 @@
 # Getting started
-This example downloads a cross-compiler from:
-
-https://developer.arm.com/-/media/Files/downloads/gnu-a/9.2-2019.12/binrel/gcc-arm-9.2-2019.12-x86_64-aarch64-none-linux-gnu.tar.xz
+This example shows cross compilation with two different toolchains.
 
 To build:
 
 ```
-bazel build //hello-abseil:hello_main --config=xcompile_aarch64
+bazel build //hello-abseil:hello_main --config=xcompile_gcc_9_aarch64
+```
+
+Or use:
+```
+bazel build //hello-abseil:hello_main --config=xcompile_gcc_8_aarch64
 ```
