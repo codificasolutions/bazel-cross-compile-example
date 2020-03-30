@@ -59,7 +59,9 @@ http_archive(
 http_archive(
     name = "gnu_gcc_8_aarch64",
     build_file = "@//:gnu_aarch64_gcc.BUILD",
-    urls = ["https://developer.arm.com/-/media/Files/downloads/gnu-a/8.3-2019.03/binrel/gcc-arm-8.3-2019.03-x86_64-aarch64-linux-gnu.tar.xz"],
-    sha256 = "8ce3e7688a47d8cd2d8e8323f147104ae1c8139520eca50ccf8a7fa933002731",
-    strip_prefix = "gcc-arm-8.3-2019.03-x86_64-aarch64-linux-gnu/",
+    # urls = ["https://developer.arm.com/-/media/Files/downloads/gnu-a/8.3-2019.03/binrel/gcc-arm-8.3-2019.03-x86_64-aarch64-linux-gnu.tar.xz"],
+    urls = ["https://developer.arm.com/-/media/Files/downloads/gnu-rm/8-2019q3/RC1.1/gcc-arm-none-eabi-8-2019-q3-update-mac.tar.bz2"],
+    # sha256 = "8ce3e7688a47d8cd2d8e8323f147104ae1c8139520eca50ccf8a7fa933002731",
+    sha = "fc235ce853bf3bceba46eff4b95764c5935ca07fc4998762ef5e5b7d05f37085",
+    strip_prefix = "gcc-arm-none-eabi-8-2019-q3-update",
 )
