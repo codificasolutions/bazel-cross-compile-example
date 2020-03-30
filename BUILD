@@ -1,5 +1,13 @@
 package(default_visibility = ['//visibility:public'])
 
+filegroup(
+    name = "all",
+    srcs = ["//hello-abseil",
+            "//hello-c",
+            "//hello-world",
+        ],
+)
+
 config_setting(
     name = "is_gcc_8",
     constraint_values = [
@@ -52,7 +60,7 @@ cc_toolchain(
 )
 
 toolchain(
-    name = "gcc_8_aarch64_xcompile_toolchain",
+    name = "linux_gcc_8_aarch64_xcompile_toolchain",
     exec_compatible_with = [
         "@platforms//cpu:x86_64",
         "@platforms//os:linux",
@@ -67,7 +75,7 @@ toolchain(
 )
 
 toolchain(
-    name = "gcc_9_aarch64_xcompile_toolchain",
+    name = "linux_gcc_9_aarch64_xcompile_toolchain",
     exec_compatible_with = [
         "@platforms//cpu:x86_64",
         "@platforms//os:linux",
@@ -81,11 +89,49 @@ toolchain(
     toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
 )
 
+toolchain(
+    name = "macos_gcc_8_aarch64_xcompile_toolchain",
+    exec_compatible_with = [
+        "@platforms//cpu:x86_64",
+        "@platforms//os:macos",
+    ],
+    target_compatible_with = [
+        "@platforms//cpu:aarch64",
+        "@platforms//os:macos",
+        ":gcc_8",
+    ],
+    toolchain = ":gcc-8-aarch64-gnu",
+    toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
+)
+
+toolchain(
+    name = "macos_gcc_9_aarch64_xcompile_toolchain",
+    exec_compatible_with = [
+        "@platforms//cpu:x86_64",
+        "@platforms//os:macos",
+    ],
+    target_compatible_with = [
+        "@platforms//cpu:aarch64",
+        "@platforms//os:macos",
+        ":gcc_9",
+    ],
+    toolchain = ":gcc-9-aarch64-gnu",
+    toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
+)
+
 platform(
     name = "linux_gcc_aarch64",
     constraint_values = [
         "@platforms//cpu:aarch64",
         "@platforms//os:linux",
+    ],
+)
+
+platform(
+    name = "macos_gcc_aarch64",
+    constraint_values = [
+        "@platforms//cpu:aarch64",
+        "@platforms//os:macos",
     ],
 )
 
@@ -103,6 +149,22 @@ platform(
         ":gcc_9",
     ],
     parents = [":linux_gcc_aarch64"],
+)
+
+platform(
+    name = "macos_gcc_8_aarch64",
+    constraint_values = [
+        ":gcc_8",
+    ],
+    parents = [":macos_gcc_aarch64"],
+)
+
+platform(
+    name = "macos_gcc_9_aarch64",
+    constraint_values = [
+        ":gcc_9",
+    ],
+    parents = [":macos_gcc_aarch64"],
 )
 
 constraint_setting(name = "gcc_version")

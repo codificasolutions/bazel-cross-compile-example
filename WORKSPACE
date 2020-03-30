@@ -17,8 +17,10 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 # Register any toolchains for cross compilation
 register_toolchains(
-    ":gcc_8_aarch64_xcompile_toolchain",
-    ":gcc_9_aarch64_xcompile_toolchain",
+    ":linux_gcc_8_aarch64_xcompile_toolchain",
+    ":linux_gcc_9_aarch64_xcompile_toolchain",
+    ":macos_gcc_8_aarch64_xcompile_toolchain",
+    ":macos_gcc_8_aarch64_xcompile_toolchain",
 )
 
 # abseil-cpp
