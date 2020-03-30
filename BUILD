@@ -63,11 +63,11 @@ toolchain(
     name = "linux_gcc_8_aarch64_xcompile_toolchain",
     exec_compatible_with = [
         "@platforms//cpu:x86_64",
-        "@platforms//os:linux",
+        # "@platforms//os:linux",
     ],
     target_compatible_with = [
         "@platforms//cpu:aarch64",
-        "@platforms//os:linux",
+        # "@platforms//os:linux",
         ":gcc_8",
     ],
     toolchain = ":gcc-8-aarch64-gnu",
@@ -78,11 +78,11 @@ toolchain(
     name = "linux_gcc_9_aarch64_xcompile_toolchain",
     exec_compatible_with = [
         "@platforms//cpu:x86_64",
-        "@platforms//os:linux",
+        # "@platforms//os:linux",
     ],
     target_compatible_with = [
         "@platforms//cpu:aarch64",
-        "@platforms//os:linux",
+        # "@platforms//os:linux",
         ":gcc_9",
     ],
     toolchain = ":gcc-9-aarch64-gnu",
@@ -93,11 +93,11 @@ toolchain(
     name = "macos_gcc_8_aarch64_xcompile_toolchain",
     exec_compatible_with = [
         "@platforms//cpu:x86_64",
-        "@platforms//os:macos",
+        # "@platforms//os:macos",
     ],
     target_compatible_with = [
         "@platforms//cpu:aarch64",
-        "@platforms//os:macos",
+        # "@platforms//os:macos",
         ":gcc_8",
     ],
     toolchain = ":gcc-8-aarch64-gnu",
@@ -108,11 +108,11 @@ toolchain(
     name = "macos_gcc_9_aarch64_xcompile_toolchain",
     exec_compatible_with = [
         "@platforms//cpu:x86_64",
-        "@platforms//os:macos",
+        # "@platforms//os:macos",
     ],
     target_compatible_with = [
         "@platforms//cpu:aarch64",
-        "@platforms//os:macos",
+        # "@platforms//os:macos",
         ":gcc_9",
     ],
     toolchain = ":gcc-9-aarch64-gnu",
@@ -123,7 +123,7 @@ platform(
     name = "linux_gcc_aarch64",
     constraint_values = [
         "@platforms//cpu:aarch64",
-        "@platforms//os:linux",
+        # "@platforms//os:linux",
     ],
 )
 
@@ -131,7 +131,7 @@ platform(
     name = "macos_gcc_aarch64",
     constraint_values = [
         "@platforms//cpu:aarch64",
-        "@platforms//os:macos",
+        # "@platforms//os:macos",
     ],
 )
 
