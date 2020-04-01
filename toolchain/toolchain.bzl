@@ -372,7 +372,6 @@ def _impl(ctx):
                     "objcopy", "objdump",
                     "strip", "as"]:
             path = k.path.replace('external_repo/external/', '')
-            print(path)
             tool_paths.append(
                 tool_path(
                     name = name,
@@ -381,6 +380,8 @@ def _impl(ctx):
             )
         else:
             fail("Not a tool: {} \nParsed from: {}".format(name, k.basename))
+
+    print(tool_paths)
 
     out = ctx.actions.declare_file(ctx.label.name)
     ctx.actions.write(out, "Fake executable")
