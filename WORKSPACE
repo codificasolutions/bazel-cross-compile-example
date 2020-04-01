@@ -15,10 +15,20 @@
 workspace(name = "com_google_absl_hello_world")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
+# load("@//:toolchain_deps.bzl", "toolchain_dependencies")
+# toolchain_dependencies()
+
+load("@//:toolchain/repo_rule.bzl", "configure_toolchain")
+configure_toolchain(
+  name = "external_repo",
+  toolchain_file = "@//:toolchain/toolchain.bzl",
+  workspace_file = "@//:toolchain/toolchain.WORKSPACE",
+)
+
 # Register any toolchains for cross compilation
 register_toolchains(
-    ":gcc_8_aarch64_xcompile_toolchain",
-    ":gcc_9_aarch64_xcompile_toolchain",
+  ":gcc_8_aarch64_xcompile_toolchain",
+  ":gcc_9_aarch64_xcompile_toolchain",
 )
 
 # abseil-cpp
@@ -43,21 +53,4 @@ http_archive(
     urls = ["https://github.com/bazelbuild/rules_cc/archive/34ca16f4aa4bf2a5d3e4747229202d6cb630ebab.zip"],
     strip_prefix = "rules_cc-34ca16f4aa4bf2a5d3e4747229202d6cb630ebab",
     sha256 = "523c59bb3f16518679668594c8874da46872fde05c32ba246bc0a35ec292f8a6",
-)
-
-# For the toolchain.
-http_archive(
-    name = "gnu_gcc_9_aarch64",
-    build_file = "@//:gnu_aarch64_gcc.BUILD",
-    urls = ["https://developer.arm.com/-/media/Files/downloads/gnu-a/9.2-2019.12/binrel/gcc-arm-9.2-2019.12-x86_64-aarch64-none-linux-gnu.tar.xz"],
-    sha256 = "8dfe681531f0bd04fb9c53cf3c0a3368c616aa85d48938eebe2b516376e06a66",
-    strip_prefix = "gcc-arm-9.2-2019.12-x86_64-aarch64-none-linux-gnu",
-)
-
-http_archive(
-    name = "gnu_gcc_8_aarch64",
-    build_file = "@//:gnu_aarch64_gcc.BUILD",
-    urls = ["https://developer.arm.com/-/media/Files/downloads/gnu-a/8.3-2019.03/binrel/gcc-arm-8.3-2019.03-x86_64-aarch64-linux-gnu.tar.xz"],
-    sha256 = "8ce3e7688a47d8cd2d8e8323f147104ae1c8139520eca50ccf8a7fa933002731",
-    strip_prefix = "gcc-arm-8.3-2019.03-x86_64-aarch64-linux-gnu/",
 )

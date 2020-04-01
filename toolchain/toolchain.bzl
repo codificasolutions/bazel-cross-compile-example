@@ -371,10 +371,12 @@ def _impl(ctx):
                     "gcov", "ld", "nm",
                     "objcopy", "objdump",
                     "strip", "as"]:
+            path = k.path.replace('external_repo/external/', '')
+            print(path)
             tool_paths.append(
                 tool_path(
                     name = name,
-                    path = k.path,
+                    path = path,
                 )
             )
         else:
