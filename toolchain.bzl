@@ -374,7 +374,7 @@ def _impl(ctx):
             tool_paths.append(
                 tool_path(
                     name = name,
-                    path = k.path,
+                    path = "/".join(k.path.split("/")[2:]),
                 )
             )
         else:

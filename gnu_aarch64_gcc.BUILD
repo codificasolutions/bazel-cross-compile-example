@@ -1,5 +1,4 @@
 package(default_visibility = ['//visibility:public'])
-load("@bazel_tools//tools/cpp:cc_toolchain_config_lib.bzl", "tool_path")
 
 filegroup(
     name = "all",
@@ -70,4 +69,24 @@ filegroup(
         ":objdump",
         ":strip",
     ],
+)
+
+load("@com_google_absl_hello_world//:toolchain.bzl", "cc_toolchain_config")
+
+cc_toolchain_config(name = "toolchain_config",
+                    tool_paths = ":compiler_components",
+)
+
+cc_toolchain(
+    name = "cc_toolchain",
+    toolchain_config = ":toolchain_config",
+    all_files = ":all",
+    ar_files = ":all",
+    as_files = ":all",
+    compiler_files = ":all",
+    dwp_files = ":all",
+    linker_files = ":all",
+    objcopy_files = ":all",
+    strip_files = ":all",
+    supports_param_files = 0,
 )
